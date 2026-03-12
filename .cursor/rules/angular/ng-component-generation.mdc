@@ -10,7 +10,7 @@ If a user asks for help to create or generate a new Angular component from scrat
 
 ### Step 1: Project Selection
 
-ASK: "Which Angular project are you creating this component for? Options include: 'badcozoneclient' (shell app), 'fz-kiosk', or 'fz-original'"
+ASK: "Which Angular project are you creating this component for? Options include: all projects referenced in [angular.json](mdc:angular.json)"
 
 - WAIT FOR USER RESPONSE
 - STORE response as {project_name}
