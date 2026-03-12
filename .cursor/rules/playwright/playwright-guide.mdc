@@ -12,8 +12,8 @@ However, we have already created the "projects" folder, where all the apps and l
 
 2 app projects currently hold a space for Playwright tests:
 
-- fz-original: corresponds our "feverzone" project which should be migrated here in the future.
-- fz-kiosk: feverzone's kiosk section which should be migrated here in the futre, since it is an independent app.
+- fz-original: corresponds our "badcozone" project which should be migrated here in the future.
+- fz-kiosk: badcozone's kiosk section which should be migrated here in the futre, since it is an independent app.
 
 Both projects are referenced in [angular.json](mdc:angular.json) and both contain a "playwright" folder that follows a folder structure from within very similar to the "src" one in Angular projects.
 
@@ -23,7 +23,7 @@ Each playwright folder should contain a playwright configuration file named "pla
 
 This file imports the common configurations from [playwright.config.ts](mdc:playwright.config.ts) and adds its custom ones.
 
-At the same level we should find folders with app features or domains of our app project e.g. Feverzone's "box-office" or "reservations".
+At the same level we should find folders with app features or domains of our app project e.g. badcozone's "box-office" or "reservations".
 
 The "app" folder will contain symbols that can be used globally in the playwright context, for any feature. These can be Angular symbols, e.g. components, services, etc. or TypeScript symbols, e.g. enums or models (meaning types and interfaces), etc.
 
@@ -228,7 +228,7 @@ The concept of fixture is not the same as in Cypress.
 
 In Playwright, a `test()` is a built-in fixture. But this fixture can be extended and re-extended, creating an abstraction of our test suite.
 
-For example in Feverzone (or fz-original) we need to be always logged in. That is why first we need to create a login fixture, located at [login.fixture.ts](mdc:projects/fz-original/playwright/app/fixtures/login.fixture.ts) and later on extend from it.
+For example in badcozone (or fz-original) we need to be always logged in. That is why first we need to create a login fixture, located at [login.fixture.ts](mdc:projects/fz-original/playwright/app/fixtures/login.fixture.ts) and later on extend from it.
 
 ```ts
 // `projects/fz-original/playwright/app/fixtures/login.fixture.ts`
@@ -239,12 +239,15 @@ import { PlaywrightInterception } from '../models/interception.model';
 import { LoginPage } from '../pages/login.page';
 import { interceptPlaywrightRoutes } from '../utils/interception.util';
 
-export function testWithLoginPageInterceptions(requestInterceptions: PlaywrightInterception[]): PlaywrightExtendedTest<LoginFixture> {
+export function testWithLoginPageInterceptions(
+  requestInterceptions: PlaywrightInterception[],
+): PlaywrightExtendedTest<LoginFixture> {
   const interceptionsWithoutDuplicates = requestInterceptions
     .reverse()
     .filter(
       (interception: PlaywrightInterception, index: number, self: PlaywrightInterception[]) =>
-        self.findIndex((t: PlaywrightInterception) => t.urlPattern === interception.urlPattern) === index,
+        self.findIndex((t: PlaywrightInterception) => t.urlPattern === interception.urlPattern) ===
+        index,
     )
     .reverse();
 
@@ -267,10 +270,17 @@ export interface MoviesFixture extends LoginFixture {
 }
 
 // Created at e.g. `projects/fz-original/playwright/movies/fixtures/movies.fixture.ts`
-export function test(partnerId: number, lang: string, country: string): PlaywrightExtendedTest<MoviesFixture> {
+export function test(
+  partnerId: number,
+  lang: string,
+  country: string,
+): PlaywrightExtendedTest<MoviesFixture> {
   const permissions: Permission[] = ['go_to_movies'];
   const featureFlags: OptimizelyFeatureKey[] = ['movies_view'];
-  const optimizelyInterception: PlaywrightInterception = getOptimizelyInterception(partnerId, featureFlags);
+  const optimizelyInterception: PlaywrightInterception = getOptimizelyInterception(
+    partnerId,
+    featureFlags,
+  );
   const interceptions: PlaywrightInterception[] = [
     ...getLoginPageDefaultInterceptions(partnerId),
     getPermissionsInterception(partnerId, permissions),
@@ -278,7 +288,8 @@ export function test(partnerId: number, lang: string, country: string): Playwrig
   ];
 
   return testWithLoginPageInterceptions(interceptions).extend<MoviesFixture>({
-    tasksPage: async ({ loginPage }, use) => await use(new MoviesPage(loginPage.page, lang, country)),
+    tasksPage: async ({ loginPage }, use) =>
+      await use(new MoviesPage(loginPage.page, lang, country)),
   });
 }
 ```

@@ -99,7 +99,7 @@ Output:
 ✓ Jira ticket created: B2BP-1234
    [FE][INFRA] Update NG Bootstrap to v15
 
-🔗 https://feverup.atlassian.net/browse/B2BP-1234
+🔗 https://badcoup.atlassian.net/browse/B2BP-1234
 
 ✓ Branch created: feature/B2BP-1234_update-ng-bootstrap-to-v15
 ✓ Uncommitted changes moved to new branch
@@ -133,7 +133,7 @@ Output:
 ✓ Uncommitted changes moved to new branch
 
 💡 Reminder: Complete the ticket details in Jira
-🔗 https://feverup.atlassian.net/browse/B2BP-1234
+🔗 https://badcoup.atlassian.net/browse/B2BP-1234
 ```
 
 ## Implementation Notes
@@ -162,14 +162,14 @@ The agent handles all error cases and ensures your uncommitted work is never los
 ✅ **Correct** (clickable):
 
 ```
-Ticket: https://feverup.atlassian.net/browse/B2BP-1234
+Ticket: https://badcoup.atlassian.net/browse/B2BP-1234
 ```
 
 ❌ **Incorrect** (not clickable):
 
 ```
-Link: https://feverup.atlassian.net/browse/B2BP-1234
-Ticket: [FE][INFRA] Title (B2BP-1234) - https://feverup.atlassian.net/browse/B2BP-1234
+Link: https://badcoup.atlassian.net/browse/B2BP-1234
+Ticket: [FE][INFRA] Title (B2BP-1234) - https://badcoup.atlassian.net/browse/B2BP-1234
 ```
 
 The URL should be on its own line or clearly separated so Cursor can make it clickable.

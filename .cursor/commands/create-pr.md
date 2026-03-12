@@ -153,7 +153,7 @@ When the user chooses not to generate a description, use this full template as t
 
 ## Repository Information
 
-- **Repository**: https://github.com/Feverup/feverzoneclient
+- **Repository**: https://github.com/badcoup/badcozoneclient
 - **Target Branch**: `master`
 
 ## PR Title Format
@@ -283,8 +283,8 @@ ASK: "Would you like to use this title, or provide a different one?"
 ASK: "Ready to create the draft PR? (yes/no)"
   - YES →
     CREATE PR using GitHub MCP with:
-      - owner: "Feverup"
-      - repo: "feverzoneclient"
+      - owner: "badcoup"
+      - repo: "badcozoneclient"
       - title: {pr_title}
       - body: {pr_description}
       - head: {feature_branch}
@@ -308,7 +308,7 @@ DISPLAY: "GitHub MCP not available. Here's your PR title and description to copy
 OUTPUT: "Title: {default_pr_title}"
 OUTPUT: {generated_description}
 PROVIDE: Link to create PR manually:
-  https://github.com/Feverup/feverzoneclient/compare/master...{feature_branch}
+  https://github.com/badcoup/badcozoneclient/compare/master...{feature_branch}
 REMIND: "Remember to create the PR as a Draft and use the [WIP] prefix in the title"
 ```
 
@@ -398,13 +398,13 @@ The MCP enables automatic PR creation directly from the Cursor chat.
 ✅ **Correct** (clickable):
 
 ```
-PR Created: https://github.com/Feverup/feverzoneclient/pull/1234
+PR Created: https://github.com/badcoup/badcozoneclient/pull/1234
 ```
 
 ❌ **Incorrect** (not clickable):
 
 ```
-PR #1234 created - [Link](https://github.com/Feverup/feverzoneclient/pull/1234)
+PR #1234 created - [Link](https://github.com/badcoup/badcozoneclient/pull/1234)
 ```
 
 ## Testing Checklist

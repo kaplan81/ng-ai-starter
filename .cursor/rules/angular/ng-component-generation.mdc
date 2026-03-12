@@ -10,14 +10,14 @@ If a user asks for help to create or generate a new Angular component from scrat
 
 ### Step 1: Project Selection
 
-ASK: "Which Angular project are you creating this component for? Options include: 'feverzoneclient' (shell app), 'fz-kiosk', or 'fz-original'"
+ASK: "Which Angular project are you creating this component for? Options include: 'badcozoneclient' (shell app), 'fz-kiosk', or 'fz-original'"
 
 - WAIT FOR USER RESPONSE
 - STORE response as {project_name}
 
 ### Step 2: NgModule Determination
 
-IF {project_name} is "feverzoneclient":
+IF {project_name} is "badcozoneclient":
 ASK: "Is this feature connected to an NgModule? Please answer yes or no."
 
 - WAIT FOR USER RESPONSE
@@ -27,7 +27,7 @@ ASK: "Is this feature connected to an NgModule? Please answer yes or no."
 
 ### Step 3: Feature/Domain Path
 
-IF {project_name} is "feverzoneclient":
+IF {project_name} is "badcozoneclient":
 IF {is_ng_module_feature} is "yes":
 ASK: "Please provide the feature/domain name which matches the name of the existing folder in src/app/modules (e.g., 'box-office', 'reservation')" - WAIT FOR USER RESPONSE - STORE response as {feature_path} - SET {base_path} to "src/app/modules/{feature_path}"
 ELSE:
