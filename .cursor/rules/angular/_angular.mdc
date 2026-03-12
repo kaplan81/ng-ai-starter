@@ -42,12 +42,10 @@ We have only taken a subset that is compliant with our guidelines and at the sam
 **Load based on specific development scenarios:**
 
 - **When generating new components** → Load [Component Generation](mdc:.cursor/rules/angular/ng-component-generation.mdc)
-- **When working with legacy modules** → Load [Component Exceptions](mdc:.cursor/rules/angular/ng-component-exception.mdc)
 
 ### Quick Reference
 
 For manual navigation to specific guidelines:
 
 - [Component Guide](mdc:.cursor/rules/angular/ng-component-guide.mdc) - Component creation and structure rules
-- [Component Exceptions](mdc:.cursor/rules/angular/ng-component-exception.mdc) - Legacy code exceptions
 - [Component Generation](mdc:.cursor/rules/angular/ng-component-generation.mdc) - Automated component generation workflow

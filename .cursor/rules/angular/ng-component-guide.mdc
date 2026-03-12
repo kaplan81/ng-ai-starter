@@ -10,8 +10,6 @@ This is a set of criteria to be able to consistently generate code for Angular c
 
 The [Angular coding style](mdc:https:/angular.dev/style-guide) should be fully respected but never with regard to folder structure. On the other hand, rules written in this file should take precendence over the official Angular ones.
 
-Exceptions to the following rules are provided at [ng-component-exception.mdc](mdc:.cursor/rules/angular/ng-component-exception.mdc).
-
 ### Component path
 
 Any Angular project in a repo or monorepo is split into app features or app domains. All those features should be located in the corresponding `src/app` of that Angular app project.
@@ -34,7 +32,6 @@ Components should follow the Smart/Dumb pattern to improve reusability, testing,
 There are 2 types of components:
 
 1. Smart (Container) Components:
-
    - Must be placed in 'containers' directories.
    - Should handle data fetching and state management.
 
@@ -288,12 +285,12 @@ export class MyComponent {
   signalWritable: WritableSignal<number> = signal<number>(0);
 
   constructor() {
-   /**
-   * We still need `takeUntilDestroyed` despite of the fact
-   * that we are taking care of the memory leaks already
-   * by using `take(1)` because user can suddenly navigate
-   * to another route before the unsubscription happens.
-   */
+    /**
+     * We still need `takeUntilDestroyed` despite of the fact
+     * that we are taking care of the memory leaks already
+     * by using `take(1)` because user can suddenly navigate
+     * to another route before the unsubscription happens.
+     */
     this.publicProp$
       .pipe(
         filter((event: Scroll) => [1].includes(event.routerEvent.id)),
