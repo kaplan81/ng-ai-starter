@@ -38,7 +38,6 @@ We have only taken a subset that is compliant with our guidelines and at the sam
 **ALWAYS load for ANY Angular component work:**
 
 - [Component Guide](mdc:.cursor/rules/angular/ng-component-guide.mdc) - Required for all component creation and refactoring
-- [Component Exceptions](mdc:.cursor/rules/angular/ng-component-exception.mdc) - Required to understand legacy code constraints
 
 **Load based on specific development scenarios:**
 
