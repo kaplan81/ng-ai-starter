@@ -1,34 +1,20 @@
-# /create-pr-description
+---
+name: create-pr-description
+description: Generates a PR description by analyzing branch changes, commits, and session context. Use when generating a pull request description, documenting branch changes, describing what a PR does, or when called internally by the create-pr skill.
+---
 
-Generate a PR description based on branch changes. This command is used by `/create-pr` but can also be invoked standalone.
+# Create PR Description
 
-## Usage
-
-Type `/create-pr-description` in the chat.
+Generates a PR description based on the diff between the current feature branch and master. Can be invoked standalone or called internally by the `create-pr` skill.
 
 ## Prerequisites
 
-- **Git**: Must be in a git repository
-- **Feature Branch**: Must be on a feature branch (not master)
-
-## What this command does
-
-1. Validates you're on a feature branch (not master)
-2. Fetches latest master for comparison
-3. Compares feature branch with master to analyze changes
-4. Generates a PR description based on:
-   - Git diff between branches
-   - Conversation context from the current session
-   - Changed files and their nature
-5. Outputs the generated description
+- Git repository
+- On a feature branch (not master)
 
 ## PR Description Template
 
-The generated PR description follows this structure:
-
-### Mandatory Sections
-
-These sections are **always included**:
+### Mandatory Sections (always included)
 
 ```markdown
 ## ℹ️ What's this PR do?
@@ -44,25 +30,20 @@ These sections are **always included**:
 (Include if UI changes, otherwise note "N/A - No UI changes")
 ```
 
-### Optional Sections
-
-These sections are included **only if relevant** to the changes:
+### Optional Sections (include only if relevant)
 
 ```markdown
 ## 📱 How should this be tested?
 
 ### Unit tests
-
 - Happy path
 - Corner cases
 
 ### E2E tests
-
 - Happy path
 - Corner cases
 
 ### Devices
-
 - Check feature in Desktop Chrome
 - Check feature in Desktop Safari
 - Check feature in Tablet Chrome
@@ -72,20 +53,17 @@ These sections are included **only if relevant** to the changes:
 - Check feature in Mobile IOS - Safari
 
 ### Multi-currency
-
 - Check multi-currency
 
 ### Multi-timezone
-
 - Check multi-timezone
 
 ### Authorization
-
 - Roles with permissions
 - Roles without permissions
 ```
 
-**Section inclusion criteria:**
+### Section Inclusion Criteria
 
 | Section        | Include when...                                         |
 | -------------- | ------------------------------------------------------- |
@@ -112,7 +90,6 @@ STORE current branch as {feature_branch}
 ```
 RUN: git fetch origin master
 INFORM: "Fetching latest master..."
-CONTINUE (master reference is now up to date for comparison)
 ```
 
 ### Step 3: Analyze Changes
@@ -134,10 +111,7 @@ Based on:
 3. **Session context**: Use any prior conversation context about the task
 4. **Code diff**: Understand the nature of changes (UI, logic, tests, etc.)
 
-Generate a PR description with:
-
-- Mandatory sections (always included)
-- Relevant optional sections based on change analysis
+Generate a PR description with mandatory sections plus relevant optional sections.
 
 ### Step 5: Output Description
 
@@ -148,10 +122,9 @@ OUTPUT: {generated_description}
 
 ## Example
 
-### Input
-
+Input:
 ```
-Current branch: feature/B2BP-1234_add-export-button
+Branch: feature/B2BP-1234_add-export-button
 Changed files:
   - src/app/modules/reports/components/export-button/...
   - src/app/modules/reports/services/export.service.ts
@@ -161,8 +134,7 @@ Commits:
   - test: add unit tests for export button
 ```
 
-### Output
-
+Output:
 ```markdown
 ## ℹ️ What's this PR do?
 
@@ -172,25 +144,18 @@ Commits:
 
 ## 👀 Where should the reviewer start?
 
-- Start with `src/app/modules/reports/components/export-button/export-button.component.ts` for the main component logic
-- Then review `src/app/modules/reports/services/export.service.ts` for the export functionality
+- Start with `src/app/modules/reports/components/export-button/export-button.component.ts`
+- Then review `src/app/modules/reports/services/export.service.ts`
 
 ## 📱 How should this be tested?
 
 ### Unit tests
-
 - Happy path
 - Corner cases
 
 ### Devices
-
 - Check feature in Desktop Chrome
-- Check feature in Desktop Safari
-- Check feature in Tablet Chrome
-- Check feature in Tablet Safari
-- Check feature in Mobile Android
-- Check feature in Mobile IOS - Chrome
-- Check feature in Mobile IOS - Safari
+...
 
 ## 📸 Screenshots (if appropriate)
 
@@ -199,13 +164,11 @@ Commits:
 
 ## Error Handling
 
-The command handles various error scenarios:
+- **On master branch**: Exit with clear message to switch to feature branch
+- **Fetch fails**: Display error (network issue or remote not available)
+- **No commits on branch**: Warn that there are no changes to describe
 
-- **On master branch**: Exits with clear message to switch to feature branch
-- **Fetch fails**: Displays error (network issue or remote not available)
-- **No commits on branch**: Warns that there are no changes to describe
+## Related Skills
 
-## Related Commands
-
-- `/create-pr`: Full PR creation workflow (uses this command internally)
-- `/start-task`: Create Jira ticket and feature branch
+- `create-pr`: Full PR creation workflow (calls this skill internally)
+- `start-task`: Create Jira ticket and feature branch
