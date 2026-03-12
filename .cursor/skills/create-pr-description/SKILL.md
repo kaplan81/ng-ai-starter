@@ -36,14 +36,17 @@ Generates a PR description based on the diff between the current feature branch 
 ## 📱 How should this be tested?
 
 ### Unit tests
+
 - Happy path
 - Corner cases
 
 ### E2E tests
+
 - Happy path
 - Corner cases
 
 ### Devices
+
 - Check feature in Desktop Chrome
 - Check feature in Desktop Safari
 - Check feature in Tablet Chrome
@@ -53,12 +56,15 @@ Generates a PR description based on the diff between the current feature branch 
 - Check feature in Mobile IOS - Safari
 
 ### Multi-currency
+
 - Check multi-currency
 
 ### Multi-timezone
+
 - Check multi-timezone
 
 ### Authorization
+
 - Roles with permissions
 - Roles without permissions
 ```
@@ -123,6 +129,7 @@ OUTPUT: {generated_description}
 ## Example
 
 Input:
+
 ```
 Branch: feature/B2BP-1234_add-export-button
 Changed files:
@@ -135,6 +142,7 @@ Commits:
 ```
 
 Output:
+
 ```markdown
 ## ℹ️ What's this PR do?
 
@@ -150,12 +158,14 @@ Output:
 ## 📱 How should this be tested?
 
 ### Unit tests
+
 - Happy path
 - Corner cases
 
 ### Devices
+
 - Check feature in Desktop Chrome
-...
+  ...
 
 ## 📸 Screenshots (if appropriate)
 

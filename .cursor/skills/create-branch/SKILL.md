@@ -122,6 +122,7 @@ IF {has_stash} = true:
 Input: ticket type `infra`, ref `B2BP-1234`, title `Update NG Bootstrap to v15`
 
 Output:
+
 ```
 ✓ Changes stashed
 ✓ Master branch updated

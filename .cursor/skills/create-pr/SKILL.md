@@ -39,6 +39,7 @@ PR Title: [WIP] - B2BP-349 - Remove commitlint
 ```
 
 Inference rules:
+
 1. Extract ticket reference: Match pattern `{PROJECT}-{NUMBER}` (e.g., `B2BP-349`)
 2. Extract title slug: Text after the `_` in the branch name
 3. Transform slug to title: Replace dashes with spaces, capitalize first letter
@@ -63,14 +64,17 @@ When skipping description generation, use this full template as placeholder:
 ## 📱 How should this be tested?
 
 ### Unit tests
+
 - Happy path
 - Corner cases
 
 ### E2E tests
+
 - Happy path
 - Corner cases
 
 ### Devices
+
 - Check feature in Desktop Chrome
 - Check feature in Desktop Safari
 - Check feature in Tablet Chrome
@@ -80,12 +84,15 @@ When skipping description generation, use this full template as placeholder:
 - Check feature in Mobile IOS - Safari
 
 ### Multi-currency
+
 - Check multi-currency
 
 ### Multi-timezone
+
 - Check multi-timezone
 
 ### Authorization
+
 - Roles with permissions
 - Roles without permissions
 
@@ -196,11 +203,13 @@ REMIND: "Remember to create the PR as a Draft and use the [WIP] prefix in the ti
 **CRITICAL**: Format URLs as clickable (on their own line):
 
 ✅ Correct:
+
 ```
 PR Created: https://github.com/badcoup/badcozoneclient/pull/1234
 ```
 
 ❌ Incorrect:
+
 ```
 PR #1234 created - [Link](https://github.com/badcoup/badcozoneclient/pull/1234)
 ```

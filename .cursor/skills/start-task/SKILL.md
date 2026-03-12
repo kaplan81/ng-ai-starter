@@ -24,6 +24,7 @@ Interactive workflow to create a Jira ticket and a feature branch. Handles uncom
 ## Uncommitted Changes
 
 If uncommitted changes are present:
+
 - They are temporarily stashed
 - Master is updated
 - New branch is created
@@ -70,6 +71,7 @@ CHECK: Is Atlassian MCP installed and authenticated?
 ### Step 3: Gather Task Information
 
 **With MCP (Automatic)**:
+
 ```
 ASK: "What is the Jira project space? (e.g., B2BP)"
 STORE response as {project}
@@ -82,6 +84,7 @@ STORE response as {ticket_title}
 ```
 
 **Without MCP (Manual fallback)**:
+
 ```
 INFORM: "Atlassian MCP not available. Please create the ticket manually in Jira."
 ASK: Same questions as above
@@ -92,6 +95,7 @@ STORE response as {ticket_ref}
 ### Step 4: Create Jira Ticket
 
 **With MCP**:
+
 ```
 CREATE ticket via Atlassian MCP:
   - Project: {project}
@@ -104,6 +108,7 @@ REMIND: "Manually add in Jira: Labels (b2b_platform), Component (Front), Parent 
 ```
 
 **Without MCP**:
+
 ```
 USE {ticket_ref} from Step 3
 ```
@@ -146,11 +151,13 @@ REMIND: "Open the ticket in Jira and add: Labels, Component, Parent epic, Descri
 **CRITICAL**: The Jira ticket link MUST be on its own line so Cursor renders it as clickable:
 
 ✅ Correct:
+
 ```
 Ticket: https://badcoup.atlassian.net/browse/B2BP-1234
 ```
 
 ❌ Incorrect:
+
 ```
 Ticket: [FE][INFRA] Title (B2BP-1234) - https://badcoup.atlassian.net/browse/B2BP-1234
 ```
@@ -172,6 +179,7 @@ Ticket: [FE][INFRA] Title (B2BP-1234) - https://badcoup.atlassian.net/browse/B2B
 ### MCP Authentication Error
 
 If you see:
+
 ```
 {"error":true,"message":"Authentication failed: {\"code\":401,\"message\":\"Unauthorized\"}"}
 ```
