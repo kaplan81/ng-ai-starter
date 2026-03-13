@@ -76,7 +76,7 @@ export default function (schema: ComponentSchema): (tree: Tree) => Promise<Rule>
         ]),
         MergeStrategy.Overwrite,
       ),
-      runJestSnapshots(fullComponentPath),
+      runVitestSnapshots(fullComponentPath),
     ]);
   };
 }
@@ -111,25 +111,25 @@ function cleanComponentOptions(options: ComponentSchema, path: string): AngularC
 }
 
 /**
- * Custom rule to execute Jest snapshot tests
+ * Custom rule to execute Vitest snapshot tests
  *
  * @returns a rule for the chain
  */
-function runJestSnapshots(componentPath: string): Rule {
+function runVitestSnapshots(componentPath: string): Rule {
   return (tree: Tree, context: SchematicContext) => {
     const isDryRun: boolean =
       (context.engine.workflow as ComponentSchematicWorkflow | null)?._dryRun ?? true;
     if (!isDryRun) {
       process.nextTick(() => {
         try {
-          execSync(`npx jest ${componentPath}/*.spec.ts -u`, { stdio: 'inherit' });
-          context.logger.info('Jest snapshots created successfully');
+          execSync(`make test ${componentPath}/*.spec.ts`, { stdio: 'inherit' });
+          context.logger.info('Vitest snapshots created successfully');
         } catch (error) {
-          context.logger.warn(`Jest snapshots failed: ${error}`);
+          context.logger.warn(`Vitest snapshots failed: ${error}`);
         }
       });
     } else {
-      context.logger.info('Skipping Jest snapshots in dry run mode');
+      context.logger.info('Skipping Vitest snapshots in dry run mode');
     }
 
     return tree;

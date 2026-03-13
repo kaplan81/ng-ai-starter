@@ -20,9 +20,9 @@ describe('<%= classify(name) %>Component', () => {
     nativeEl = debugEl.nativeElement;
   });
 
-  it('should match snapshot', () => {
-    fixture.detectChanges();
-    expect(fixture).toMatchSnapshot();
+  it('should match snapshot', async () => {
+    await fixture.whenStable();
+    expect(component).toMatchSnapshot();
   });
 
   describe('firstComponentPublicMethod()', () => {

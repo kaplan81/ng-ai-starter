@@ -12,9 +12,9 @@ describe('TailoredBoilerplateComponent', () => {
     component = fixture.componentInstance;
   });
 
-  it('should match snapshot', () => {
-    fixture.detectChanges();
-    expect(fixture).toMatchSnapshot();
+  it('should match snapshot', async () => {
+    await fixture.whenStable();
+    expect(component).toMatchSnapshot();
   });
 
   describe('firstComponentPublicMethod()', () => {

@@ -7,11 +7,11 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "test:file": "ng test --include",
+    "test:file": "ng test --no-watch --include",
     "build:fz-schematics": "npm run build --prefix projects/@scope/schematics",
     "build:fz-schematics:watch": "npm run build:watch --prefix projects/@scope/schematics",
     "schematics:component": "schematics ./projects/@scope/schematics/src/collection.json:c",
-    "generate:component": "npm run schematics:component -- --dry-run=false"
+    "generate:component": "npm run schematics:component -- --no-dry-run"
   },
   "private": true,
   "packageManager": "npm@11.9.0",

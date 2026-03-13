@@ -40,4 +40,4 @@ The guidelines the schematics questions are referring to are located in `.cursor
 
 The generated code will look similar to the one you can find in `projects/@scope/schematics/src/component/snippets`.
 
-On top of that, the script will also run the jest test with the pertinent flag to create or update the [Jest Snapshots](https://jestjs.io/docs/snapshot-testing).
+On top of that, the script will also run the Vitest test with the pertinent flag to create or update the Vitest Snapshots.
