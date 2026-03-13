@@ -23,7 +23,7 @@ Each playwright folder should contain a playwright configuration file named "pla
 
 This file imports the common configurations from [playwright.config.ts](mdc:playwright.config.ts) and adds its custom ones.
 
-At the same level we should find folders with app features or domains of our app project e.g. badcozone's "box-office" or "reservations".
+At the same level we should find folders with app features or domains of our app project e.g. "dashboard" or "contact".
 
 The "app" folder will contain symbols that can be used globally in the playwright context, for any feature. These can be Angular symbols, e.g. components, services, etc. or TypeScript symbols, e.g. enums or models (meaning types and interfaces), etc.
 

@@ -17,14 +17,10 @@ ASK: "Which Angular project are you creating this component for? Options include
 
 ### Step 2: Feature/Domain Path
 
-IF {project_name} is "badcozoneclient":
-ASK: "Please provide the feature/domain name which matches the name of the existing folder in src/app (e.g., 'kiosks', 'memberships')" - WAIT FOR USER RESPONSE - STORE response as {feature_path} - SET {base_path} to "src/app/{feature_path}"
-ELSE:
-ASK: "Please provide the feature/domain name which matches the name of the existing folder in the app (e.g., 'dashboard', 'user-profile')"
-
+- ASK: "Please provide the feature/domain name which matches the name of the existing folder in src/features"
 - WAIT FOR USER RESPONSE
 - STORE response as {feature_path}
-- SET {base_path} to "projects/{project_name}/src/app/{feature_path}"
+- SET {base_path} to "projects/{project_name}/src/features/{feature_path}"
 
 ### Step 3: Component Type
 

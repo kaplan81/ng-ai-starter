@@ -10,7 +10,19 @@
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
-          "style": "scss"
+          "changeDetection": "OnPush",
+          "skipImport": true,
+          "standalone": true,
+          "style": "scss",
+          "flat": false
+        },
+        "@schematics/angular:directive": {
+          "skipImport": true,
+          "standalone": true,
+          "flat": false
+        },
+        "@schematics/angular:service": {
+          "flat": false
         }
       },
       "root": "projects/sample",
