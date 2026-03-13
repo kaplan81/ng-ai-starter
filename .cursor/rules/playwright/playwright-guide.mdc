@@ -101,7 +101,7 @@ If we see a comment like that and perform changes on the snippet, we should take
 
 Because of this issue, we need to be extremly careful not to import the functionality from another project but from the very same project we are in.
 
-- fz-kiosk project will use the custom path `@fz-kiosk-playwright` contained in [tsconfig.json](mdc:tsconfig.json).
+- fz-kiosk project will use the custom path `@scope-kiosk-playwright` contained in [tsconfig.json](mdc:tsconfig.json).
 - fz-original project will temporarily use relative paths.
 
 ### Utility functions

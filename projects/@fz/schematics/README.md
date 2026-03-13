@@ -17,7 +17,7 @@ npm run schematics:component -- --project=my-project --feature-path=my-feature -
 
 The former will listen to the TypeScript changes you apply on the schematics script and update the compilation automatically.
 
-The latter will run the schematic itself with all the required options specified in e.g. the authored `projects/@fz/schematics/src/component/schema.json`, which in this case extends the actual Angular schema for components.
+The latter will run the schematic itself with all the required options specified in e.g. the authored `projects/@scope/schematics/src/component/schema.json`, which in this case extends the actual Angular schema for components.
 
 However, this will apply a dry run, since this is anabled by default for local collections. If this is not desired or you want to test the actual file creation, just add `--dry-run=false` to the command.
 
@@ -38,6 +38,6 @@ The schematic will ask several questions:
 
 The guidelines the schematics questions are referring to are located in `.cursor/rules/angular/ng-component/ng-component.rule.mdc`.
 
-The generated code will look similar to the one you can find in `projects/@fz/schematics/src/component/snippets`.
+The generated code will look similar to the one you can find in `projects/@scope/schematics/src/component/snippets`.
 
 On top of that, the script will also run the jest test with the pertinent flag to create or update the [Jest Snapshots](https://jestjs.io/docs/snapshot-testing).

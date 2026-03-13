@@ -8,9 +8,9 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "test:file": "ng test --include",
-    "build:fz-schematics": "npm run build --prefix projects/@fz/schematics",
-    "build:fz-schematics:watch": "npm run build:watch --prefix projects/@fz/schematics",
-    "schematics:component": "schematics ./projects/@fz/schematics/src/collection.json:c",
+    "build:fz-schematics": "npm run build --prefix projects/@scope/schematics",
+    "build:fz-schematics:watch": "npm run build:watch --prefix projects/@scope/schematics",
+    "schematics:component": "schematics ./projects/@scope/schematics/src/collection.json:c",
     "generate:component": "npm run schematics:component -- --dry-run=false"
   },
   "private": true,

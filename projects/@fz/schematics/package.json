@@ -1,5 +1,5 @@
 {
-  "name": "@fz/schematics",
+  "name": "@scope/schematics",
   "version": "0.0.0",
   "description": "Custom Angular schematics",
   "scripts": {
