@@ -29,7 +29,7 @@ import { ComponentSchema } from './schema.model';
 export default function (schema: ComponentSchema): (tree: Tree) => Promise<Rule> {
   return async (tree: Tree): Promise<Rule> => {
     const schematicsPackageName = '@schematics/angular';
-    const sourceAppPath = 'src/features';
+    const sourceAppPath = 'src/app';
     const workspace: WorkspaceDefinition = await getWorkspace(tree);
     const project: ProjectDefinition | undefined = workspace.projects.get(schema.project);
     if (project === undefined) {
